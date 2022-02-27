@@ -1,0 +1,54 @@
+@import "../UI/varsAndMixins";
+
+.meals {
+  &__list-item {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $whiteColor;
+    border-bottom: 1px solid $whiteColor;
+    margin-top: 20px;
+    padding: 0 0 20px 0;
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  &__list-item-name {
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: $mealItemNameDeskt;
+    margin: 0;
+    @media only screen and (max-width: 992px) {
+      font-size: $mealItemNameMax992;
+    }
+    @media only screen and (max-width: 576px) {
+      font-size: $mealItemNameMobile;
+    }
+  }
+  &__list-item-desc {
+    font-size: $mealItemDescDeskt;
+    margin: 5px 30px 0 0;
+    line-height: 1.6;
+    @media only screen and (max-width: 992px) {
+      font-size: $mealItemDescMax992;
+    }
+    @media only screen and (max-width: 576px) {
+      font-size: $mealItemDescMobile;
+    }
+  }
+  &__list-item-price {
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 8px 0 0 0;
+    font-size: $mealItemPriceDeskt;
+
+    @media only screen and (max-width: 992px) {
+      font-size: $mealItemPriceMax992;
+    }
+    @media only screen and (max-width: 576px) {
+      font-size: $mealItemPriceMobile;
+    }
+  }
+}

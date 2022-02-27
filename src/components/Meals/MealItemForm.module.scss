@@ -1,0 +1,50 @@
+@import "../UI/varsAndMixins";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__label {
+    margin: 0;
+    font-size: $mealItemInputLabelDeskt;
+    @media only screen and (max-width: 992px) {
+      font-size: $mealItemInputLabelMax992;
+    }
+    @media only screen and (max-width: 576px) {
+      font-size: $mealItemInputLabelMobile;
+    }
+  }
+  &__input {
+    margin-top: 5px;
+    width: 70px;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    padding: 5px 1px;
+    font-weight: bold;
+    font-size: $mealItemInputDeskt;
+    @media only screen and (max-width: 992px) {
+      padding: 4px 1px;
+    }
+    @media only screen and (max-width: 576px) {
+      width: 63px;
+    }
+
+    &:focus,
+    &:active {
+      border: none;
+      outline: none;
+    }
+  }
+
+  &__btn {
+    @include cartButton;
+    padding: 5px 20px;
+    margin-top: 8px;
+    margin-left: 0;
+    @media only screen and (max-width: 576px) {
+      margin-top: 8px;
+    }
+  }
+}

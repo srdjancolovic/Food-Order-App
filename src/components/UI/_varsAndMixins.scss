@@ -1,0 +1,201 @@
+$orangeColor: #f5834d;
+$lightOrange: #ffcd64;
+$redColor: #bc5252;
+$whiteColor: white;
+$blackColor: black;
+
+//Modal overlay background
+$modalBackground: rgba(0, 0, 0, 0.7);
+
+//Meals list background
+$mealsWrapperBackground: rgba(150, 135, 101, 0.7);
+
+//Cart
+$cartBackgroundColor: rgba(150, 135, 101, 0.7);
+$errorInputColor: rgba(188, 82, 82, 0.7);
+//////////////////
+/////////////////Font sizes
+
+///HEARDER
+$headerCartButtonDeskt: 17px;
+$headerCartButtonMax992: 15px;
+
+$headerCartButtonNumDeskt: 15px;
+$headerCartButtonNumMobile: 13px;
+
+//MEAL ITEM
+$mealItemNameDeskt: 23px;
+$mealItemNameMax992: 20px;
+$mealItemNameMobile: 18px;
+
+$mealItemDescDeskt: 17px;
+$mealItemDescMax992: 16px;
+$mealItemDescMobile: 14px;
+
+$mealItemPriceDeskt: 21px;
+$mealItemPriceMax992: 19px;
+$mealItemPriceMobile: 17px;
+
+$mealItemInputLabelDeskt: 15px;
+$mealItemInputLabelMax992: 13px;
+$mealItemInputLabelMobile: 12px;
+
+$mealItemInputDeskt: 15px;
+
+//CART
+$cartItemNameDeskt: 19px;
+$cartItemNameMax992: 18px;
+$cartItemNameMobile: 17px;
+
+$cartItemPriceDeskt: 18px;
+$cartItemPriceMobile: 16px;
+
+$cartItemAmountDeskt: 16px;
+$cartItemAmountMobile: 14px;
+
+$cartItemActionBtn: 20px;
+
+$cartTotalAmountDeskt: 21px;
+$cartTotalAmountMax992: 20px;
+$cartTotalAmountMobile: 19px;
+
+///CART BUTTONS
+$cartBtnDeskt: 14px;
+$cartBtnMobile: 13px;
+
+//////////////
+//////////////USER INFO FORM
+$inputLabelDeskt: 15px;
+$inputLabelMax992: 14px;
+$inputLabelMobile: 13px;
+
+$inputFontSize: 17px;
+
+////////////////
+///////////////HINT MESSAGES
+$hintMsgDeskt: 30px;
+$hintMsgMobile: 20px;
+
+////////////////
+/////////////////MIXINS AND CLASSES
+
+//Cart button
+@mixin cartButton {
+  background: $orangeColor;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: $whiteColor;
+  font-weight: bold;
+  transition: all 0.4s ease;
+  text-transform: uppercase;
+  font-size: $cartBtnDeskt;
+  -webkit-tap-highlight-color: transparent;
+  &:focus,
+  &:active {
+    border: none;
+    outline: none;
+  }
+  &:hover {
+    background: $lightOrange;
+  }
+  @media only screen and (max-width: 992px) {
+    padding: 8px 15px;
+    &:hover {
+      background: $orangeColor;
+    }
+  }
+  @media only screen and (max-width: 576px) {
+    font-size: $cartBtnMobile;
+    margin-top: 20px;
+  }
+}
+//Hint message
+@mixin hintMsg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 30px;
+  color: $whiteColor;
+  text-transform: uppercase;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 1.6;
+  z-index: 100;
+  letter-spacing: 2px;
+  background: $cartBackgroundColor;
+  font-size: $hintMsgDeskt;
+  @media only screen and (max-width: 640px) {
+    width: 90%;
+    font-size: $hintMsgMobile;
+    letter-spacing: 1px;
+  }
+}
+
+//Hint loading and error messages
+.loading-msg {
+  @include hintMsg;
+  background: $orangeColor;
+}
+
+.error-msg {
+  @include hintMsg;
+  background: $redColor;
+}
+.sending-order-msg {
+  @include hintMsg;
+  animation: fadeIn 0.5s ease;
+}
+
+////Empty cart div with message and close button
+.message-button {
+  z-index: 100;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px 20px 0;
+
+  //Empty cart message
+  &__msg {
+    z-index: 100;
+    font-size: $hintMsgDeskt;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    @media only screen and (max-width: 576px) {
+      font-size: $hintMsgMobile;
+      letter-spacing: 1px;
+      margin: 0 20px 10px 20px;
+    }
+  }
+}
+
+//Error input field
+.error-field-input {
+  border-radius: 10px;
+  width: 300px;
+  margin-top: 5px;
+  padding: 10px;
+  border: none;
+  background: $errorInputColor;
+  color: $whiteColor;
+  font-size: $inputFontSize;
+  caret-color: $orangeColor;
+  &:focus,
+  &:active {
+    border: none;
+    outline: none;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,163 @@
+@import "../UI/varsAndMixins";
+
+.cart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 130;
+  background-color: $cartBackgroundColor;
+  width: 600px;
+  padding: 20px 0 20px 20px;
+  color: $whiteColor;
+  border-radius: 20px;
+  @media only screen and (max-width: 640px) {
+    width: 90%;
+    top: 50%;
+  }
+
+  &__list {
+    max-height: 313px;
+    list-style: none;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $orangeColor;
+      border-radius: 10px;
+    }
+    @media only screen and (max-width: 375px) {
+      max-height: 200px;
+    }
+  }
+
+  //////////////////
+  //////////////////CART ITEM
+
+  &__list-item {
+    padding: 10px 0px 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $whiteColor;
+    margin-top: 20px;
+    margin-right: 13px;
+
+    @media only screen and (max-width: 992px) {
+      padding: 10px 0 20px 0;
+    }
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  &__list-item-name {
+    font-size: $cartItemNameDeskt;
+    @media only screen and (max-width: 992px) {
+      font-size: $cartItemNameMax992;
+    }
+    @media only screen and (max-width: 640px) {
+      font-size: $cartItemPriceMobile;
+    }
+  }
+  &__list-item-details {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+  }
+  &__list-item-price {
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: $cartItemPriceDeskt;
+    @media only screen and (max-width: 640px) {
+      font-size: $cartItemPriceMobile;
+    }
+  }
+  &__list-item-amount {
+    background: $orangeColor;
+    padding: 3px 10px;
+    border-radius: 10px;
+    margin-left: 30px;
+    font-size: $cartItemAmountDeskt;
+    @media only screen and (max-width: 640px) {
+      font-size: $cartItemAmountMobile;
+    }
+  }
+  &__list-item-action-btn {
+    font-size: $cartItemActionBtn;
+    width: 30px;
+    height: 25px;
+    background: $orangeColor;
+    border: none;
+    border-radius: 5px;
+    color: $whiteColor;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-align: center;
+    margin-left: 5px;
+    &:focus,
+    &:active {
+      border: none;
+      outline: none;
+    }
+    &:hover {
+      background: $lightOrange;
+    }
+    @media only screen and (max-width: 992px) {
+      &:hover {
+        background: $orangeColor;
+      }
+    }
+  }
+  //////////////////////////////////
+  ////TOTAL AMOUNT AND ORDER BUTTONS
+
+  &__total-order-btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0px 20px 0;
+    border-top: 1px solid $whiteColor;
+    margin-top: 30px;
+    margin-right: 20px;
+    @media only screen and (max-width: 640px) {
+      flex-direction: column;
+    }
+    @media only screen and (max-width: 375px) {
+      margin-top: 20px;
+    }
+  }
+
+  /////////TOTAL AMOUNT
+
+  &__total-amount {
+    display: flex;
+    align-items: center;
+  }
+
+  &__total-amount-number {
+    margin-left: 15px;
+    font-size: $cartTotalAmountDeskt;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    @media only screen and (max-width: 992px) {
+      font-size: $cartTotalAmountMax992;
+    }
+    @media only screen and (max-width: 640px) {
+      font-size: $cartTotalAmountMobile;
+    }
+  }
+
+  ////ORDER AND CANCEL BUTTONS
+  &__order-btn {
+    @include cartButton;
+    margin-left: 10px;
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+}

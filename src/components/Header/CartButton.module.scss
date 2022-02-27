@@ -1,0 +1,62 @@
+@import "../UI/varsAndMixins";
+
+.order-btn {
+  background: $orangeColor;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $whiteColor;
+  font-weight: bold;
+  transition: all 0.4s ease;
+  font-size: $headerCartButtonDeskt;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  &:focus,
+  &:active {
+    border: none;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  &:hover {
+    background: $lightOrange;
+  }
+  @media only screen and (max-width: 992px) {
+    font-size: $headerCartButtonMax992;
+    &:hover {
+      background: $orangeColor;
+    }
+  }
+  &__icon {
+    width: 25px;
+    height: 25px;
+    fill: $whiteColor;
+    @media only screen and (max-width: 992px) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &__desc {
+    margin-left: 20px;
+    @media only screen and (max-width: 576px) {
+      display: none;
+    }
+  }
+  &__item-num {
+    margin-left: 20px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: $redColor;
+
+    @media only screen and (max-width: 992px) {
+      font-size: $headerCartButtonNumDeskt;
+      padding: 3px 10px;
+    }
+    @media only screen and (max-width: 576px) {
+      font-size: $headerCartButtonNumMobile;
+    }
+  }
+}

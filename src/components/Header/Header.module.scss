@@ -1,0 +1,27 @@
+@import "../UI/varsAndMixins";
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+  @media only screen and (max-width: 992px) {
+    justify-content: space-between;
+    padding: 20px 20px;
+  }
+
+  &__logo {
+    font-family: "Lobster";
+    letter-spacing: 2px;
+    font-size: 45px;
+    color: $whiteColor;
+    display: flex;
+    align-self: center;
+    @media only screen and (max-width: 992px) {
+      font-size: 35px;
+    }
+    @media only screen and (max-width: 576px) {
+      font-size: 30px;
+    }
+  }
+}
